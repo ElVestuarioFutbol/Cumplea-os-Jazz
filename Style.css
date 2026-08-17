@@ -1,0 +1,1660 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+body {
+
+    overflow: hidden;
+
+    background:
+        #f8b6c3;
+
+    font-family:
+        "Segoe Script",
+        "Comic Sans MS",
+        cursive;
+
+}
+
+
+
+/* =========================================
+   ESCENA
+========================================= */
+
+
+.scene {
+
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,255,255,.35),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #f7aebb 0%,
+            #f9bdc8 50%,
+            #f7a9b8 100%
+        );
+
+}
+
+
+
+/* =========================================
+   LUZ
+========================================= */
+
+
+.glow {
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 40%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.18);
+
+    filter:
+        blur(70px);
+
+    animation:
+        breathe 4s infinite alternate;
+
+}
+
+
+@keyframes breathe {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            scale(.8);
+
+        opacity: .4;
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.2);
+
+        opacity: .8;
+
+    }
+
+}
+
+
+
+/* =========================================
+   INTRO ARCO
+========================================= */
+
+
+#archeryIntro {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    animation:
+        introFadeOut 1s ease forwards;
+
+    animation-delay:
+        4.2s;
+
+}
+
+
+
+/* =========================================
+   CORAZÓN
+========================================= */
+
+
+#targetHeart {
+
+    position: absolute;
+
+    left: 50%;
+    top: 34%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    font-size:
+        clamp(
+            75px,
+            18vw,
+            120px
+        );
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,255,255,.7)
+        );
+
+    animation:
+
+        targetAppear
+        1s ease forwards,
+
+        targetHit
+        .7s ease forwards
+        2.85s;
+
+}
+
+
+@keyframes targetAppear {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+    70% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.18);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes targetHit {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+    25% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.35)
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(.9)
+            rotate(5deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+}
+
+
+
+/* =========================================
+   ARCO SVG
+========================================= */
+
+
+#bowSVG {
+
+    position: absolute;
+
+    width:
+        clamp(
+            150px,
+            32vw,
+            260px
+        );
+
+    height:
+        clamp(
+            300px,
+            62vw,
+            500px
+        );
+
+    left:
+        clamp(
+            4%,
+            10vw,
+            15%
+        );
+
+    top: 23%;
+
+    overflow: visible;
+
+    transform:
+        rotate(-5deg)
+        scale(.7);
+
+    transform-origin:
+        center center;
+
+    opacity: 0;
+
+    animation:
+
+        bowEnter
+        1s
+        cubic-bezier(.2,.8,.2,1)
+        forwards
+        .8s;
+
+}
+
+
+@keyframes bowEnter {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-80px)
+            rotate(-12deg)
+            scale(.6);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            rotate(-5deg)
+            scale(.7);
+
+    }
+
+}
+
+
+
+/* =========================================
+   CUERDA
+========================================= */
+
+
+#stringSVG {
+
+    position: absolute;
+
+    width:
+        clamp(
+            150px,
+            32vw,
+            260px
+        );
+
+    height:
+        clamp(
+            300px,
+            62vw,
+            500px
+        );
+
+    left:
+        clamp(
+            4%,
+            10vw,
+            15%
+        );
+
+    top: 23%;
+
+    overflow: visible;
+
+    transform:
+        rotate(-5deg)
+        scale(.7);
+
+    transform-origin:
+        center center;
+
+    opacity: 0;
+
+    animation:
+
+        stringAppear
+        .5s
+        ease
+        forwards
+        1.3s,
+
+        stringTension
+        .8s
+        ease-in-out
+        forwards
+        2s;
+
+}
+
+
+#bowStringPath {
+
+    stroke-dasharray:
+        900;
+
+    stroke-dashoffset:
+        900;
+
+    animation:
+
+        stringDraw
+        1s
+        ease
+        forwards
+        1.3s;
+
+}
+
+
+@keyframes stringAppear {
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes stringDraw {
+
+    to {
+
+        stroke-dashoffset: 0;
+
+    }
+
+}
+
+
+@keyframes stringTension {
+
+    0% {
+
+        transform:
+            translateX(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(15px);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+
+/* =========================================
+   FLECHA SVG
+========================================= */
+
+
+#arrowSVG {
+
+    position: absolute;
+
+    width:
+        clamp(
+            190px,
+            43vw,
+            360px
+        );
+
+    height: auto;
+
+    left:
+        clamp(
+            13%,
+            19vw,
+            25%
+        );
+
+    top: 42%;
+
+    transform:
+        rotate(-8deg)
+        scale(.8);
+
+    transform-origin:
+        left center;
+
+    opacity: 0;
+
+    z-index: 10;
+
+    animation:
+
+        arrowReady
+        .5s
+        ease
+        forwards
+        1.9s,
+
+        arrowShoot
+        1s
+        cubic-bezier(.15,.75,.2,1)
+        forwards
+        2.35s;
+
+}
+
+
+@keyframes arrowReady {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes arrowShoot {
+
+    0% {
+
+        left:
+            clamp(
+                13%,
+                19vw,
+                25%
+            );
+
+        top: 42%;
+
+        transform:
+            rotate(-8deg)
+            scale(.8);
+
+        opacity: 1;
+
+    }
+
+    20% {
+
+        left: 30%;
+
+        top: 39%;
+
+        transform:
+            rotate(-4deg)
+            scale(.85);
+
+    }
+
+    45% {
+
+        left: 38%;
+
+        top: 35%;
+
+        transform:
+            rotate(-1deg)
+            scale(.9);
+
+    }
+
+    70% {
+
+        left: 44%;
+
+        top: 34%;
+
+        transform:
+            rotate(2deg)
+            scale(.95);
+
+    }
+
+    100% {
+
+        left: 49%;
+
+        top: 34%;
+
+        transform:
+            rotate(2deg)
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+
+/* =========================================
+   DESTELLOS
+========================================= */
+
+
+#impact {
+
+    position: absolute;
+
+    left: 50%;
+    top: 34%;
+
+    width: 200px;
+    height: 200px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    z-index: 20;
+
+    pointer-events: none;
+
+}
+
+
+#impact span {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    font-size: 40px;
+
+    opacity: 0;
+
+}
+
+
+#impact span:nth-child(1) {
+
+    animation:
+        spark1
+        .8s
+        ease
+        forwards
+        2.95s;
+
+}
+
+
+#impact span:nth-child(2) {
+
+    animation:
+        spark2
+        .8s
+        ease
+        forwards
+        2.95s;
+
+}
+
+
+#impact span:nth-child(3) {
+
+    animation:
+        spark3
+        .8s
+        ease
+        forwards
+        2.95s;
+
+}
+
+
+#impact span:nth-child(4) {
+
+    animation:
+        spark4
+        .8s
+        ease
+        forwards
+        2.95s;
+
+}
+
+
+@keyframes spark1 {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+    40% {
+
+        transform:
+            translate(-120px, -100px)
+            scale(1.3);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(-170px, -150px)
+            scale(.3);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes spark2 {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+    40% {
+
+        transform:
+            translate(80px, -100px)
+            scale(1.3);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(150px, -150px)
+            scale(.3);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes spark3 {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+    40% {
+
+        transform:
+            translate(-120px, 80px)
+            scale(1.3);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(-170px, 130px)
+            scale(.3);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes spark4 {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 0;
+
+    }
+
+    40% {
+
+        transform:
+            translate(90px, 80px)
+            scale(1.3);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(150px, 130px)
+            scale(.3);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+/* =========================================
+   DESAPARECER INTRO
+========================================= */
+
+
+@keyframes introFadeOut {
+
+    0% {
+
+        opacity: 1;
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+
+/* =========================================
+   MENSAJES
+========================================= */
+
+
+.message {
+
+    position: absolute;
+
+    width: 90%;
+
+    left: 5%;
+
+    top: 15%;
+
+    text-align: center;
+
+    font-size:
+        clamp(
+            25px,
+            6vw,
+            55px
+        );
+
+    color: #9b3049;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+    z-index: 10;
+
+}
+
+
+.message.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.small-heart {
+
+    display: block;
+
+    margin-top: 20px;
+
+    font-size: 35px;
+
+    animation:
+        heartbeat 1.2s infinite;
+
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.25);
+
+    }
+
+}
+
+
+
+/* =========================================
+   SUELO
+========================================= */
+
+
+.ground {
+
+    position: absolute;
+
+    width: 280px;
+    height: 45px;
+
+    left: 50%;
+    bottom: 16%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #70462e;
+
+    border-radius: 50%;
+
+    box-shadow:
+
+        0 8px 0 #603c29,
+
+        0 15px 30px
+        rgba(0,0,0,.15);
+
+}
+
+
+
+/* =========================================
+   ÁRBOL
+========================================= */
+
+
+.tree {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 18%;
+
+    width: 260px;
+    height: 420px;
+
+    transform:
+        translateX(-50%)
+        scaleY(0);
+
+    transform-origin:
+        bottom;
+
+    transition:
+
+        transform 4s
+        cubic-bezier(.2,.8,.2,1);
+
+    z-index: 3;
+
+}
+
+
+.tree.grow {
+
+    transform:
+        translateX(-50%)
+        scaleY(1);
+
+}
+
+
+
+/* =========================================
+   TRONCO
+========================================= */
+
+
+.trunk {
+
+    position: absolute;
+
+    width: 55px;
+    height: 270px;
+
+    bottom: 0;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #603b28,
+            #8a5838,
+            #633d29
+        );
+
+    border-radius:
+        40% 40% 20% 20%;
+
+}
+
+
+
+/* =========================================
+   RAMAS
+========================================= */
+
+
+.branch {
+
+    position: absolute;
+
+    height: 22px;
+
+    background:
+        #70462f;
+
+    border-radius:
+        20px;
+
+    transform-origin:
+        left center;
+
+}
+
+
+.branch1 {
+
+    width: 120px;
+
+    left: 50%;
+
+    bottom: 180px;
+
+    transform:
+        rotate(-38deg);
+
+}
+
+
+.branch2 {
+
+    width: 110px;
+
+    left: 50%;
+
+    bottom: 220px;
+
+    transform:
+        rotate(35deg);
+
+}
+
+
+.branch3 {
+
+    width: 90px;
+
+    left: 50%;
+
+    bottom: 260px;
+
+    transform:
+        rotate(-25deg);
+
+}
+
+
+
+/* =========================================
+   HOJAS
+========================================= */
+
+
+.leaves {
+
+    position: absolute;
+
+    width: 300px;
+    height: 260px;
+
+    left: 50%;
+    top: 20px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.leaf {
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius:
+        50%;
+
+    background:
+        #86b85c;
+
+    box-shadow:
+
+        inset -10px -10px 20px
+        rgba(0,0,0,.08);
+
+    opacity: 0;
+
+    transform:
+        scale(.2);
+
+    animation:
+        leafAppear 1s forwards;
+
+}
+
+
+.leaf:nth-child(1) {
+
+    left: 40px;
+    top: 90px;
+
+    animation-delay:
+        3.8s;
+
+}
+
+
+.leaf:nth-child(2) {
+
+    left: 100px;
+    top: 30px;
+
+    animation-delay:
+        4s;
+
+}
+
+
+.leaf:nth-child(3) {
+
+    left: 170px;
+    top: 80px;
+
+    animation-delay:
+        4.2s;
+
+}
+
+
+.leaf:nth-child(4) {
+
+    left: 0;
+    top: 30px;
+
+    animation-delay:
+        4.4s;
+
+}
+
+
+.leaf:nth-child(5) {
+
+    left: 130px;
+    top: 120px;
+
+    animation-delay:
+        4.6s;
+
+}
+
+
+.leaf:nth-child(6) {
+
+    left: 210px;
+    top: 20px;
+
+    animation-delay:
+        4.8s;
+
+}
+
+
+@keyframes leafAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+
+/* =========================================
+   FLORES
+========================================= */
+
+
+.flowers {
+
+    position: absolute;
+
+    inset: 0;
+
+}
+
+
+.flower {
+
+    position: absolute;
+
+    font-size:
+        32px;
+
+    opacity: 0;
+
+    transform:
+        scale(0);
+
+    animation:
+        flowerAppear 1s forwards;
+
+}
+
+
+.flower:nth-child(1) {
+
+    left: 20%;
+    top: 22%;
+
+    animation-delay:
+        5s;
+
+}
+
+
+.flower:nth-child(2) {
+
+    left: 35%;
+    top: 14%;
+
+    animation-delay:
+        5.2s;
+
+}
+
+
+.flower:nth-child(3) {
+
+    left: 53%;
+    top: 20%;
+
+    animation-delay:
+        5.4s;
+
+}
+
+
+.flower:nth-child(4) {
+
+    left: 70%;
+    top: 15%;
+
+    animation-delay:
+        5.6s;
+
+}
+
+
+.flower:nth-child(5) {
+
+    left: 80%;
+    top: 27%;
+
+    animation-delay:
+        5.8s;
+
+}
+
+
+.flower:nth-child(6) {
+
+    left: 45%;
+    top: 30%;
+
+    animation-delay:
+        6s;
+
+}
+
+
+.flower:nth-child(7) {
+
+    left: 28%;
+    top: 32%;
+
+    animation-delay:
+        6.2s;
+
+}
+
+
+.flower:nth-child(8) {
+
+    left: 63%;
+    top: 31%;
+
+    animation-delay:
+        6.4s;
+
+}
+
+
+@keyframes flowerAppear {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+
+/* =========================================
+   PÉTALOS
+========================================= */
+
+
+.petals {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events:
+        none;
+
+}
+
+
+.petal {
+
+    position: absolute;
+
+    width: 13px;
+    height: 20px;
+
+    background:
+        #fff0f4;
+
+    border-radius:
+        80% 20% 80% 20%;
+
+    opacity:
+        .8;
+
+    animation:
+        fall linear infinite;
+
+}
+
+
+@keyframes fall {
+
+    from {
+
+        transform:
+            translateY(-100px)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+    }
+
+}
+
+
+
+/* =========================================
+   MENSAJE FINAL
+========================================= */
+
+
+.final {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    flex-direction:
+        column;
+
+    text-align:
+        center;
+
+    background:
+        rgba(248,174,190,.94);
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 2s;
+
+    z-index:
+        30;
+
+}
+
+
+.final.show {
+
+    opacity:
+        1;
+
+}
+
+
+.final h1 {
+
+    color:
+        white;
+
+    font-size:
+        clamp(
+            40px,
+            10vw,
+            85px
+        );
+
+    text-shadow:
+        0 4px 10px
+        rgba(0,0,0,.1);
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.final p {
+
+    color:
+        #9b3049;
+
+    font-size:
+        clamp(
+            20px,
+            5vw,
+            40px
+        );
+
+    max-width:
+        800px;
+
+    padding:
+        20px;
+
+}
+
+
+.final-heart {
+
+    font-size:
+        60px;
+
+    animation:
+        heartbeat 1s infinite;
+
+}
+
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+
+@media (max-width: 600px) {
+
+
+    #bowSVG,
+    #stringSVG {
+
+        left: 2%;
+
+        top: 25%;
+
+        transform:
+            rotate(-5deg)
+            scale(.58);
+
+    }
+
+
+    #arrowSVG {
+
+        left: 15%;
+
+        top: 42%;
+
+        width:
+            230px;
+
+    }
+
+
+    #targetHeart {
+
+        top: 34%;
+
+        font-size:
+            82px;
+
+    }
+
+
+    .tree {
+
+        transform:
+            translateX(-50%)
+            scale(.8)
+            scaleY(0);
+
+    }
+
+
+    .tree.grow {
+
+        transform:
+            translateX(-50%)
+            scale(.8)
+            scaleY(1);
+
+    }
+
+}
