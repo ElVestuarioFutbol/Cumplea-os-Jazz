@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Para Jazz ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="scene">
+
+
+    <!-- =================================
+         INTRODUCCIÓN
+         ARCO + FLECHA + CORAZÓN
+    ================================== -->
+
+    <div id="archeryIntro">
+
+
+        <!-- Corazón objetivo -->
+
+        <div id="targetHeart">
+            ❤️
+        </div>
+
+
+        <!-- ARCO SVG -->
+
+        <svg
+            id="bowSVG"
+            viewBox="0 0 260 500"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <!-- Cuerpo principal del arco -->
+
+            <path
+                d="
+                    M 130 30
+                    C 25 120, 25 380, 130 470
+                "
+                fill="none"
+                stroke="#70452d"
+                stroke-width="18"
+                stroke-linecap="round"
+            />
+
+
+            <!-- Detalle interior -->
+
+            <path
+                d="
+                    M 125 45
+                    C 45 130, 45 370, 125 455
+                "
+                fill="none"
+                stroke="#9a6644"
+                stroke-width="5"
+                stroke-linecap="round"
+                opacity=".8"
+            />
+
+
+            <!-- Empuñadura -->
+
+            <rect
+                x="115"
+                y="210"
+                width="30"
+                height="80"
+                rx="12"
+                fill="#563522"
+            />
+
+
+            <!-- Adornos -->
+
+            <circle
+                cx="130"
+                cy="200"
+                r="6"
+                fill="#d99a6c"
+            />
+
+            <circle
+                cx="130"
+                cy="300"
+                r="6"
+                fill="#d99a6c"
+            />
+
+        </svg>
+
+
+        <!-- CUERDA -->
+
+        <svg
+            id="stringSVG"
+            viewBox="0 0 260 500"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <path
+                id="bowStringPath"
+                d="
+                    M 130 30
+                    L 130 250
+                    L 130 470
+                "
+                fill="none"
+                stroke="#fff8f5"
+                stroke-width="3"
+            />
+
+        </svg>
+
+
+        <!-- FLECHA -->
+
+        <div id="arrowSVG">
+
+            <svg
+                viewBox="0 0 500 40"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+                <!-- Vara -->
+
+                <line
+                    x1="20"
+                    y1="20"
+                    x2="440"
+                    y2="20"
+                    stroke="#70452d"
+                    stroke-width="5"
+                />
+
+
+                <!-- Plumas -->
+
+                <path
+                    d="
+                        M 35 20
+                        L 10 5
+                        L 18 20
+                        L 10 35
+                        Z
+                    "
+                    fill="#9a6644"
+                />
+
+
+                <!-- Punta -->
+
+                <polygon
+                    points="
+                        495,20
+                        450,5
+                        450,35
+                    "
+                    fill="#d7d7d7"
+                />
+
+                <polygon
+                    points="
+                        495,20
+                        450,5
+                        450,35
+                    "
+                    fill="none"
+                    stroke="#777"
+                    stroke-width="2"
+                />
+
+            </svg>
+
+        </div>
+
+
+        <!-- DESTELLOS DEL IMPACTO -->
+
+        <div id="impact">
+
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+            <span>✨</span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================
+         LUZ DE FONDO
+    ================================== -->
+
+    <div class="glow"></div>
+
+
+    <!-- =================================
+         MENSAJES
+    ================================== -->
+
+
+    <!-- MENSAJE 1 -->
+
+    <div
+        id="msg1"
+        class="message"
+    >
+
+        Para mi<br>
+
+        <b>
+            amorcito Jazz
+        </b>
+
+        <span class="small-heart">
+            ❤️
+        </span>
+
+    </div>
+
+
+    <!-- MENSAJE 2 -->
+
+    <div
+        id="msg2"
+        class="message"
+    >
+
+        Hay muchas cosas<br>
+
+        que me gustan de ti...
+
+    </div>
+
+
+    <!-- MENSAJE 3 -->
+
+    <div
+        id="msg3"
+        class="message"
+    >
+
+        Me encanta<br>
+
+        cómo me tratas ❤️
+
+    </div>
+
+
+    <!-- MENSAJE 4 -->
+
+    <div
+        id="msg4"
+        class="message"
+    >
+
+        Me encantan<br>
+
+        tus ojos ✨
+
+    </div>
+
+
+    <!-- MENSAJE 5 -->
+
+    <div
+        id="msg5"
+        class="message"
+    >
+
+        Y podría quedarme<br>
+
+        escuchando tu voz<br>
+
+        por horas ❤️
+
+    </div>
+
+
+    <!-- MENSAJE 6 -->
+
+    <div
+        id="msg6"
+        class="message"
+    >
+
+        Pero sobre todo...<br>
+
+        me encanta tenerte<br>
+
+        en mi vida.
+
+    </div>
+
+
+
+    <!-- =================================
+         SUELO
+    ================================== -->
+
+    <div class="ground"></div>
+
+
+
+    <!-- =================================
+         ÁRBOL
+    ================================== -->
+
+    <div
+        id="tree"
+        class="tree"
+    >
+
+
+        <!-- Tronco -->
+
+        <div class="trunk"></div>
+
+
+        <!-- Ramas -->
+
+        <div
+            class="branch branch1"
+        ></div>
+
+        <div
+            class="branch branch2"
+        ></div>
+
+        <div
+            class="branch branch3"
+        ></div>
+
+
+        <!-- Hojas -->
+
+        <div class="leaves">
+
+            <div class="leaf"></div>
+
+            <div class="leaf"></div>
+
+            <div class="leaf"></div>
+
+            <div class="leaf"></div>
+
+            <div class="leaf"></div>
+
+            <div class="leaf"></div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================
+         FLORES
+    ================================== -->
+
+    <div class="flowers">
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+        <div class="flower">
+            🌸
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         PÉTALOS
+    ================================== -->
+
+    <div
+        class="petals"
+        id="petals"
+    ></div>
+
+
+
+    <!-- =================================
+         MENSAJE FINAL
+    ================================== -->
+
+    <div
+        id="final"
+        class="final"
+    >
+
+
+        <h1>
+
+            Feliz cumpleaños,<br>
+
+            amorcito Jazz ❤️
+
+        </h1>
+
+
+        <p>
+
+            Espero poder seguir compartiendo
+            muchos momentos contigo.
+
+        </p>
+
+
+        <div class="final-heart">
+
+            ❤️
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =================================
+   CREAR PÉTALOS
+================================= */
+
+
+const petals =
+    document.getElementById("petals");
+
+
+for (
+    let i = 0;
+    i < 40;
+    i++
+) {
+
+
+    const petal =
+        document.createElement("div");
+
+
+    petal.classList.add(
+        "petal"
+    );
+
+
+    petal.style.left =
+        Math.random() * 100 + "%";
+
+
+    petal.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+
+    petal.style.animationDelay =
+        Math.random() * 8 + "s";
+
+
+    petals.appendChild(
+        petal
+    );
+
+}
+
+
+
+/* =================================
+   MENSAJES
+================================= */
+
+
+const messages = [
+
+    "msg1",
+    "msg2",
+    "msg3",
+    "msg4",
+    "msg5",
+    "msg6"
+
+];
+
+
+function showMessage(id) {
+
+
+    messages.forEach(
+        message => {
+
+            document
+                .getElementById(message)
+                .classList.remove("show");
+
+        }
+    );
+
+
+    document
+        .getElementById(id)
+        .classList.add("show");
+
+}
+
+
+
+/* =================================
+   SECUENCIA
+================================= */
+
+
+/*
+   0 - 4 segundos:
+
+   Arco,
+   cuerda,
+   flecha
+   y corazón.
+*/
+
+
+/* ---------------------------------
+   MENSAJE INICIAL
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    showMessage("msg1");
+
+}, 4200);
+
+
+
+/* ---------------------------------
+   SEGUNDO MENSAJE
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    showMessage("msg2");
+
+}, 7000);
+
+
+
+/* ---------------------------------
+   CRECER EL ÁRBOL
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    document
+        .getElementById("tree")
+        .classList.add("grow");
+
+}, 7500);
+
+
+
+/* ---------------------------------
+   CÓMO ME TRATAS
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    showMessage("msg3");
+
+}, 10500);
+
+
+
+/* ---------------------------------
+   SUS OJOS
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    showMessage("msg4");
+
+}, 13500);
+
+
+
+/* ---------------------------------
+   SU VOZ
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    showMessage("msg5");
+
+}, 16500);
+
+
+
+/* ---------------------------------
+   TENERLA EN TU VIDA
+--------------------------------- */
+
+
+setTimeout(() => {
+
+    showMessage("msg6");
+
+}, 20000);
+
+
+
+/* =================================
+   FINAL
+================================= */
+
+
+setTimeout(() => {
+
+    document
+        .getElementById("final")
+        .classList.add("show");
+
+}, 25000);
+
+
+</script>
+
+
+</body>
+
+  </html>
